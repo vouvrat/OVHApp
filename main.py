@@ -16,9 +16,9 @@ client = ovh.Client(
     consumer_key='xxxxxxxxxx',       # Consumer Key
 )
 
-listmaillinhList = []
+listmaillingList = []
 
-listMailinglist = client.get('/email/domain/vouvrat.com/mailingList', 
+listMailinglist = client.get('/email/domain/'.arrayDomainlist.'/mailingList', 
     #name=None, // Mailing list name (type: string)
 )
 
