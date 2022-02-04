@@ -18,11 +18,11 @@ client = ovh.Client(
 
 listmaillingList = []
 
-listMailinglist = client.get('/email/domain/'.arrayDomainlist.'/mailingList', 
+listMailinglist = client.get('/email/domain/NDD/mailingList', 
     #name=None, // Mailing list name (type: string)
 )
 
-result = client.get('/email/domain/vouvrat.com/mailingList/direct/subscriber', 
+result = client.get('/email/domain/NDD/mailingList/direct/subscriber', 
     email=None, // Subscriber email (type: string)
 )
 
