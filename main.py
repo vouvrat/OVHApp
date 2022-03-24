@@ -1,31 +1,42 @@
 # -*- encoding: utf-8 -*-
-'''
-First, install the latest release of Python wrapper: $ pip install ovh
-'''
-import json
-import ovh
-import csv
 
-# Instanciate an OVH Client.
-# You can generate new credentials with full access to your account on
-# the token creation page
-client = ovh.Client(
-    endpoint='ovh-eu',               # Endpoint of API OVH Europe (List of available endpoints)
-    application_key='xxxxxxxxxx',    # Application Key
-    application_secret='xxxxxxxxxx', # Application Secret
-    consumer_key='xxxxxxxxxx',       # Consumer Key
-)
+import os
+from welcome import welcome
+from createMX.createmx import createmx
+from deleteMX.deletemx import deletemx
+from createEX.createex import createex
+from deleteEX.deleteex import deleteex
+from redirectMail.redirectmail import redirectMail
 
-listmaillingList = []
+def main():
+    while True:
+        os.system("clear")
+        print(welcome("OVHApp"))
+        print("\nChoisissez le service que vous souhaitez utiliser : ")
+        print("""
+        1 : Créer une boite mail - MXPlan 
+        2 : Supprimer une boite mail - MXPlan
+        3 : Créer une boite mail - Exchange
+        4 : Supprimer une boite mail - Exchange
+        5 : Mettre en place une redirection
+        0 : Exit"""
+              )
+        choice = input("\nEntrez votre choix : ")
 
-listMailinglist = client.get('/email/domain/NDD/mailingList', 
-    #name=None, // Mailing list name (type: string)
-)
+        if choice == '1':
+            createmx()
+        elif choice == '2' :
+            deletemx()
+        elif choice == '3' :
+            createex()
+        elif choice == '4' :
+            deleteex()
+        elif choice == '5' :
+            redirectMail()
+        elif choice == '0':
+            exit()
+        os.system("clear")
 
-result = client.get('/email/domain/NDD/mailingList/direct/subscriber', 
-    email=None, // Subscriber email (type: string)
-)
 
-
-# Pretty print
-print (json.dumps(result, indent=4))
+if __name__ == "__main__":
+    main()
