@@ -2,17 +2,17 @@
 
 import os
 from welcome import welcome
-from createMX.createmx import createmx
-from deleteMX.deletemx import deletemx
-from createEX.createex import createex
-from deleteEX.deleteex import deleteex
+from createMX.createmx import newmxmail
+from deleteMX.deletemx import deletemx_mail
+from createEX.createex import createex_mail
+from deleteEX.deleteex import deleteex_mail
 from redirectMail.redirectmail import redirectMail
 
 def main():
     while True:
         os.system("clear")
         print(welcome("OVHApp"))
-        print("\nChoisissez le service que vous souhaitez utiliser : ")
+        print("\nChoisissez la fonction que vous souhaitez utiliser : ")
         print("""
         1 : Créer une boite mail - MXPlan 
         2 : Supprimer une boite mail - MXPlan
@@ -24,13 +24,13 @@ def main():
         choice = input("\nEntrez votre choix : ")
 
         if choice == '1':
-            createmx()
+            newmxmail()
         elif choice == '2' :
-            deletemx()
+            delmxmail()
         elif choice == '3' :
-            createex()
+            newexmail()
         elif choice == '4' :
-            deleteex()
+            delexmail()
         elif choice == '5' :
             redirectMail()
         elif choice == '0':
